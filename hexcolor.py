@@ -21,6 +21,10 @@ def to_rgb(text: str) -> tuple[int, int, int]:
     return tuple(int(body[i : i + 2], 16) for i in (0, 2, 4))  # type: ignore[return-value]
 
 
+def same_color(left: str, right: str) -> bool:
+    return normalize_hex(left) == normalize_hex(right)
+
+
 def from_rgb(red: int, green: int, blue: int) -> str:
     for channel in (red, green, blue):
         if channel < 0 or channel > 255:
