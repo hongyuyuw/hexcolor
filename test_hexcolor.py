@@ -1,6 +1,6 @@
 import unittest
 
-from hexcolor import from_rgb, normalize_hex, to_rgb
+from hexcolor import from_rgb, normalize_hex, same_color, to_rgb
 
 
 class HexcolorTest(unittest.TestCase):
@@ -10,6 +10,8 @@ class HexcolorTest(unittest.TestCase):
         self.assertEqual(to_rgb("#abc"), (170, 187, 204))
         self.assertEqual(from_rgb(0, 255, 0), "#00FF00")
         self.assertEqual(to_rgb(from_rgb(170, 187, 204)), (170, 187, 204))
+        self.assertTrue(same_color("#abc", "AABBCC"))
+        self.assertFalse(same_color("#abc", "#000000"))
 
     def test_reject(self) -> None:
         with self.assertRaises(ValueError):
