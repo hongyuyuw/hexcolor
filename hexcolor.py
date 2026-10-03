@@ -25,6 +25,11 @@ def same_color(left: str, right: str) -> bool:
     return normalize_hex(left) == normalize_hex(right)
 
 
+def invert(text: str) -> str:
+    red, green, blue = to_rgb(text)
+    return from_rgb(255 - red, 255 - green, 255 - blue)
+
+
 def from_rgb(red: int, green: int, blue: int) -> str:
     for channel in (red, green, blue):
         if channel < 0 or channel > 255:
