@@ -25,6 +25,13 @@ def same_color(left: str, right: str) -> bool:
     return normalize_hex(left) == normalize_hex(right)
 
 
+def channel(text: str, name: str) -> int:
+    index = {"r": 0, "g": 1, "b": 2}.get(name)
+    if index is None:
+        raise ValueError("通道只能是 r g b")
+    return to_rgb(text)[index]
+
+
 def invert(text: str) -> str:
     red, green, blue = to_rgb(text)
     return from_rgb(255 - red, 255 - green, 255 - blue)
