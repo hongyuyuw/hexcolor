@@ -32,6 +32,11 @@ def channel(text: str, name: str) -> int:
     return to_rgb(text)[index]
 
 
+def is_gray(text: str) -> bool:
+    red, green, blue = to_rgb(text)
+    return red == green == blue
+
+
 def invert(text: str) -> str:
     red, green, blue = to_rgb(text)
     return from_rgb(255 - red, 255 - green, 255 - blue)
