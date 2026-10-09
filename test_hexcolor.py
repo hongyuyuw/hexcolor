@@ -1,6 +1,6 @@
 import unittest
 
-from hexcolor import channel, from_rgb, invert, normalize_hex, same_color, to_rgb
+from hexcolor import channel, from_rgb, invert, is_gray, normalize_hex, same_color, to_rgb
 
 
 class HexcolorTest(unittest.TestCase):
@@ -14,6 +14,8 @@ class HexcolorTest(unittest.TestCase):
         self.assertFalse(same_color("#abc", "#000000"))
         self.assertEqual(invert("#000000"), "#FFFFFF")
         self.assertEqual(channel("#00FF00", "g"), 255)
+        self.assertTrue(is_gray("#CCCCCC"))
+        self.assertFalse(is_gray("#00FF00"))
         with self.assertRaises(ValueError):
             channel("#00FF00", "a")
         self.assertEqual(invert(invert("#00FF00")), "#00FF00")
