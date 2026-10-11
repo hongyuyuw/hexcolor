@@ -37,6 +37,10 @@ def is_gray(text: str) -> bool:
     return red == green == blue
 
 
+def is_black(text: str) -> bool:
+    return to_rgb(text) == (0, 0, 0)
+
+
 def invert(text: str) -> str:
     red, green, blue = to_rgb(text)
     return from_rgb(255 - red, 255 - green, 255 - blue)
