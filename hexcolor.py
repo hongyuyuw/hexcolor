@@ -45,6 +45,11 @@ def is_white(text: str) -> bool:
     return to_rgb(text) == (255, 255, 255)
 
 
+def brightness(text: str) -> int:
+    red, green, blue = to_rgb(text)
+    return (red + green + blue) // 3
+
+
 def invert(text: str) -> str:
     red, green, blue = to_rgb(text)
     return from_rgb(255 - red, 255 - green, 255 - blue)
