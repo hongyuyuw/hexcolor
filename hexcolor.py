@@ -50,6 +50,10 @@ def brightness(text: str) -> int:
     return (red + green + blue) // 3
 
 
+def is_dark(text: str) -> bool:
+    return brightness(text) < 128
+
+
 def invert(text: str) -> str:
     red, green, blue = to_rgb(text)
     return from_rgb(255 - red, 255 - green, 255 - blue)
