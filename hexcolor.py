@@ -58,6 +58,11 @@ def is_light(text: str) -> bool:
     return brightness(text) >= 128
 
 
+def channel_gap(text: str) -> int:
+    red, green, blue = to_rgb(text)
+    return max(red, green, blue) - min(red, green, blue)
+
+
 def invert(text: str) -> str:
     red, green, blue = to_rgb(text)
     return from_rgb(255 - red, 255 - green, 255 - blue)
