@@ -1,6 +1,6 @@
 import unittest
 
-from hexcolor import brightness, channel, from_rgb, invert, is_black, is_dark, is_gray, is_light, is_white, normalize_hex, same_color, to_rgb
+from hexcolor import brightness, channel, channel_gap, from_rgb, invert, is_black, is_dark, is_gray, is_light, is_white, normalize_hex, same_color, to_rgb
 
 
 class HexcolorTest(unittest.TestCase):
@@ -26,6 +26,8 @@ class HexcolorTest(unittest.TestCase):
         self.assertFalse(is_dark("#FFFFFF"))
         self.assertTrue(is_light("#FFFFFF"))
         self.assertFalse(is_light("#000000"))
+        self.assertEqual(channel_gap("#FF0000"), 255)
+        self.assertEqual(channel_gap("#FFFFFF"), 0)
         with self.assertRaises(ValueError):
             channel("#00FF00", "a")
         self.assertEqual(invert(invert("#00FF00")), "#00FF00")
