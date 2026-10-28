@@ -73,3 +73,6 @@ def from_rgb(red: int, green: int, blue: int) -> str:
         if channel < 0 or channel > 255:
             raise ValueError("通道超出 0..255")
     return f"#{red:02X}{green:02X}{blue:02X}"
+
+def flat_color(text: str) -> bool:
+    return channel_gap(text) == 0
