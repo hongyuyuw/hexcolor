@@ -76,3 +76,6 @@ def from_rgb(red: int, green: int, blue: int) -> str:
 
 def flat_color(text: str) -> bool:
     return channel_gap(text) == 0
+
+def wide_gap(text: str) -> bool:
+    return channel_gap(text) >= 128
